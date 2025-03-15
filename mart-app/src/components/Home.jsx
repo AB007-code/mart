@@ -1,8 +1,9 @@
 import React from "react";
+import "../index.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { SliderData, discoutProducts } from "../Product1";
+import { SliderData, discoutProducts, newArrival, bestSale } from "../Product1";
 import HeroImg from "../Images/hero-img.png";
 import PhoneImg from "../Images/phone-08.png";
 import WirelessImg from "../Images/wireless-01.png";
@@ -12,8 +13,7 @@ import { IoCard } from "react-icons/io5";
 import { FaShieldAlt } from "react-icons/fa";
 import { IoHeadset } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
-import { FaStarHalfAlt } from "react-icons/fa";
-console.log(discoutProducts);
+console.log(newArrival);
 var settings = {
   infinite: true,
   slidesToShow: 1,
@@ -196,7 +196,7 @@ const Home = () => {
         <div className="container d-flex justify-content-center mt-4">
           <div className="row row-cols-3 g-4  w-75">
             {discoutProducts.map((ele) => (
-              <div className="col" style={{ height: "380px" }}>
+              <div className="col" style={{ height: "380px" }} key={ele.id}>
                 <div className="border h-100 rounded bg-white d-flex flex-column justify-content-evenly">
                   <div
                     className="border rounded-pill text-center ms-2 text-white py-1"
@@ -205,7 +205,7 @@ const Home = () => {
                     {ele.discount}% Off
                   </div>
                   <div
-                    className="border text-center"
+                    className="text-center"
                     style={{ height: "150px", width: "100%" }}
                   >
                     <img
@@ -214,21 +214,24 @@ const Home = () => {
                     />
                   </div>
                   <div
-                    className="border w-75 fw-semibold ms-4"
+                    className=" w-75 fw-semibold ms-4 mt-2 d-flex flex-wrap align-content-center"
                     style={{ fontSize: "1.1em", height: "50px" }}
                   >
                     {ele.productName}
                   </div>
-                  <div className="border text-warning ms-4">
+                  <div className=" text-warning ms-4 mb-3">
                     <FaStar />
                     <FaStar className="mx-1" />
                     <FaStar />
                     <FaStar className="mx-1" />
                     <FaStar />
                   </div>
-                  <div className="d-flex  justify-content-between border ms-4 me-4">
+                  <div
+                    className="d-flex  justify-content-between ms-4 me-4"
+                    style={{ height: "35px" }}
+                  >
                     <div className="fs-4 fw-semibold ">${ele.price}</div>
-                    <button className="rounded-circle border fs-3  w-25 text-center">
+                    <button className="addBtn rounded-circle border btn  fs-3 pt-1 h-100 d-flex flex-wrap justify-content-center align-content-center">
                       +
                     </button>
                   </div>
@@ -238,6 +241,114 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <div style={{ height: "1800px" }} className="mt-4">
+        <div
+          className="d-flex flex-wrap align-content-end justify-content-center fs-1 fw-semibold"
+          style={{ height: "120px" }}
+        >
+          New Arrival
+        </div>
+        <div className="container d-flex justify-content-center mt-4">
+          <div className="row row-cols-3 g-4  w-75 justify-content-center">
+            {newArrival.map((ele) => (
+              <div className="col" style={{ height: "380px" }} key={ele.id}>
+                <div className="border h-100 rounded bg-white d-flex flex-column justify-content-evenly">
+                  <div
+                    className="text-center"
+                    style={{ height: "150px", width: "100%" }}
+                  >
+                    <img
+                      src={`${ele.imgUrl}`}
+                      className="w-75 h-100 object-fit-contain"
+                    />
+                  </div>
+                  <div
+                    className=" w-75 fw-semibold ms-4 mt-2 d-flex flex-wrap align-content-center"
+                    style={{ fontSize: "1.1em", height: "50px" }}
+                  >
+                    {ele.productName}
+                  </div>
+                  <div className=" text-warning ms-4 mb-3">
+                    <FaStar />
+                    <FaStar className="mx-1" />
+                    <FaStar />
+                    <FaStar className="mx-1" />
+                    <FaStar />
+                  </div>
+                  <div
+                    className="d-flex  justify-content-between ms-4 me-4"
+                    style={{ height: "35px" }}
+                  >
+                    <div className="fs-4 fw-semibold ">${ele.price}</div>
+                    <button className="addBtn rounded-circle border btn  fs-3 pt-1 h-100 d-flex flex-wrap justify-content-center align-content-center">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{ backgroundColor: "#F5F8FD", height: "1400px" }}
+        className="mt-4"
+      >
+        <div
+          className="d-flex flex-wrap align-content-end justify-content-center fs-1 fw-semibold"
+          style={{ height: "120px" }}
+        >
+          Best Sales
+        </div>
+        <div className="container d-flex justify-content-center mt-4">
+          <div className="row row-cols-3 g-4  w-75 justify-content-center">
+            {bestSale.map((ele) => (
+              <div className="col" style={{ height: "380px" }} key={ele.id}>
+                <div className="border h-100 rounded bg-white d-flex flex-column justify-content-evenly">
+                  <div
+                    className="text-center"
+                    style={{ height: "150px", width: "100%" }}
+                  >
+                    <img
+                      src={`${ele.imgUrl}`}
+                      className="w-75 h-100 object-fit-contain"
+                    />
+                  </div>
+                  <div
+                    className=" w-75 fw-semibold ms-4 mt-2 d-flex flex-wrap align-content-center"
+                    style={{ fontSize: "1.1em", height: "50px" }}
+                  >
+                    {ele.productName}
+                  </div>
+                  <div className=" text-warning ms-4 mb-3">
+                    <FaStar />
+                    <FaStar className="mx-1" />
+                    <FaStar />
+                    <FaStar className="mx-1" />
+                    <FaStar />
+                  </div>
+                  <div
+                    className="d-flex  justify-content-between ms-4 me-4"
+                    style={{ height: "35px" }}
+                  >
+                    <div className="fs-4 fw-semibold ">${ele.price}</div>
+                    <button className="addBtn rounded-circle border btn  fs-3 pt-1 h-100 d-flex flex-wrap justify-content-center align-content-center">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div
+        className=""
+        style={{ height: "400px", backgroundColor: "#0F3460" }}
+      ></div>
     </>
   );
 };
