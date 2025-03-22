@@ -132,7 +132,7 @@ const Detail = () => {
                 <button
                   className="btn text-white px-3 fs-5"
                   style={{ backgroundColor: "#0F3460" }}
-                  onClick={() => dispatch(add_to_cart(singleProduct))}
+                  onClick={() => dispatch(add_to_cart(singleProduct[0]))}
                 >
                   Add To Cart
                 </button>
